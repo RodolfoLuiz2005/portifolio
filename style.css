@@ -119,7 +119,7 @@ form  .btn-enviar  input[type=submit]:hover  {
 
 }
 
-.menu-mobile  .abrir-menu~.overly-menu  {
+.menu-mobile.abrir-menu~.overly-menu  {
         display:  block;
 }
 
@@ -455,6 +455,37 @@ form  textarea  {
         resize:  none;
         max-height:  250px;
 
+}
+
+form  input.campo-invalido,
+form  textarea.campo-invalido  {
+        border:  1px  solid  #ff3b3b;
+}
+
+form  input.campo-valido,
+form  textarea.campo-valido  {
+        border:  1px  solid  #00ff08;
+}
+
+.mensagem-erro,
+.mensagem-sucesso  {
+        font-size:  14px;
+        font-weight:  500;
+        line-height:  1.4;
+}
+
+.mensagem-erro  {
+        color:  #ff3b3b;
+}
+
+.mensagem-sucesso  {
+        color:  #00ff08;
+        text-align:  center;
+}
+
+.mensagem-erro:empty,
+.mensagem-sucesso:empty  {
+        display:  none;
 }
 
 form  .btn-enviar  {

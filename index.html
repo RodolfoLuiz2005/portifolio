@@ -206,7 +206,7 @@
                                                 <h2>
                                                         PRAZER,  <span>  ME  CHAMO  RODOLFO</span>
                                                 </h2>
-                                                <p>I  am  passionate  about  technology  and  software  development,  always  seeking  to  learn  new  tools  and  improve  my  technical  skills.  My  knowledge  is  primarily  focused  on  front-end  development,  and  I  am  proficient  in  HTML,  CSS,  JavaScript,  React.js,  Node.js,  Java,  Python,  and  Cypress.</p>
+                                                <p>I  am  passionate  about  technology  and  software  development,  always  seeking  to  learn  new  tools  and  improve  my  technical  skills.  My  knowledge  is  primarily  focused  on  front-end  development,  and  I  am  proficient  in  HTML,  CSS,  JavaScript,  Node.js, Python  and  Cypress.</p>
                                                 <br>
                                                 <p>I  have  a  proactive  profile,  a  knack  for  learning,  and  a  strong  interest  in  web  development,  good  programming  practices,  and  building  modern  and  scalable  applications.  I  am  looking  for  opportunities  to  grow  professionally,  contribute  to  challenging  projects,  and  constantly  evolve  in  the  technology  field.</p>
 
@@ -290,14 +290,19 @@
                 <section  class="form">
                         <div  class="interface">
                                 <h2  class="titulo">FALA<span>COMIGO</span></h2>
-                                <form  id="contact-form"  action="#"  method="post">
-                                        <input  type="text"  name="nome"  id="nome"  placeholder="seu  nome"  required>
-                                        <input  type="email"  name="email"  id="email"  placeholder="seu  e-mail"  required>
-                                        <input  type="tel"  name="celular"  id="celular"  placeholder="seu  celular"  required>
-                                        <textarea  name="mensagem"  id="mensagem"  placeholder="Sua  mensagem"  required></textarea>
+                                <form  id="contact-form"  action="#"  method="post"  novalidate>
+                                        <input  type="text"  name="nome"  id="nome"  placeholder="seu  nome"  aria-describedby="nome-erro"  required>
+                                        <span  class="mensagem-erro"  id="nome-erro"  aria-live="polite"></span>
+                                        <input  type="email"  name="email"  id="email"  placeholder="seu  e-mail"  aria-describedby="email-erro"  required>
+                                        <span  class="mensagem-erro"  id="email-erro"  aria-live="polite"></span>
+                                        <input  type="tel"  name="celular"  id="celular"  placeholder="seu  celular"  aria-describedby="celular-erro"  required>
+                                        <span  class="mensagem-erro"  id="celular-erro"  aria-live="polite"></span>
+                                        <textarea  name="mensagem"  id="mensagem"  placeholder="Sua  mensagem"  aria-describedby="mensagem-erro"  required></textarea>
+                                        <span  class="mensagem-erro"  id="mensagem-erro"  aria-live="polite"></span>
                                         <div  class="btn-enviar">
                                                 <button  type="submit">Enviar</button>
                                         </div>
+                                        <p  class="mensagem-sucesso"  id="mensagem-sucesso"  aria-live="polite"></p>
                                 </form>
                         </div>
                 </section>
@@ -338,8 +343,11 @@
                         <div  class="line-footer  borda">
 
                                 <p>
-                                        <i  class="bi  bi-envelope"></i><a  href="mailto:rodolfoluiz@gmail.com"
-                                                type="e-mail">Rodolfolz09082020@gmailcom</a>
+                                 <i  class="bi  bi-envelope">
+                                 </i>
+                                 <a  href="mailto:rodolfoluiz@gmail.com"
+                                 type="e-mail">Rodolfolz09082020@gmailcom
+                                </a>
                                 </p>
 
                         </div><!--line-footer-->
