@@ -34,7 +34,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function limparMensagemSucesso() {
         if (mensagemSucesso) {
             mensagemSucesso.textContent = '';
+            mensagemSucesso.classList.remove('erro-envio');
         }
+    }
+
+    function mostrarMensagemEnvio(mensagem, tipo = 'sucesso') {
+        if (!mensagemSucesso) return;
+
+        mensagemSucesso.textContent = mensagem;
+        mensagemSucesso.classList.toggle('erro-envio', tipo === 'erro');
     }
 
     function mostrarErro(campo, mensagem) {
@@ -162,19 +170,41 @@ document.addEventListener('DOMContentLoaded', () => {
     campos.celular.addEventListener('input', () => validarAoDigitar(validarCelular));
     campos.mensagem.addEventListener('input', () => validarAoDigitar(validarMensagem));
 
-    form.addEventListener('submit', event => {
+    async function enviarFormulario() {
+        const endpoint = form.action;
+
+        if (!endpoint || endpoint.includes('SEU_ID_AQUI')) {
+            throw new Error('Endpoint do Formspree nao configurado.');
+        }
+
+        const resposta = await fetch(endpoint, {
+            method: form.method,
+            body: new FormData(form),
+            headers: {
+                Accept: 'application/json'
+            }
+        });
+
+        if (!resposta.ok) {
+            throw new Error('Falha no envio do formulario.');
+        }
+    }
+
+    form.addEventListener('submit', async event => {
         event.preventDefault();
+        limparMensagemSucesso();
 
         if (!validarFormulario()) {
-            limparMensagemSucesso();
             return;
         }
 
-        if (mensagemSucesso) {
-            mensagemSucesso.textContent = 'Mensagem enviada com sucesso!';
+        try {
+            await enviarFormulario();
+            mostrarMensagemEnvio('Mensagem enviada com sucesso!');
+            form.reset();
+            limparValidacao();
+        } catch (erro) {
+            mostrarMensagemEnvio('Nao foi possivel enviar a mensagem. Verifique o endpoint do formulario e tente novamente.', 'erro');
         }
-
-        form.reset();
-        limparValidacao();
     });
 });

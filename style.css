@@ -483,6 +483,10 @@ form  textarea.campo-valido  {
         text-align:  center;
 }
 
+.mensagem-sucesso.erro-envio  {
+        color:  #ff3b3b;
+}
+
 .mensagem-erro:empty,
 .mensagem-sucesso:empty  {
         display:  none;
