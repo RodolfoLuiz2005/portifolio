@@ -358,8 +358,8 @@ section.sobre  .flex  {
 /*ESTILOS  DOS  PROJETOS*/
 
 section.portifolio  {
-      
-        box-shadow:  0  0  35px  10px  #ffffff13;
+      padding-top: 2%;
+      box-shadow:  0  0  35px  10px  #ffffff13;
 
 }
 
@@ -369,13 +369,15 @@ section.portifolio  .flex  {
         justify-content:  space-around;
         margin-top:  55px;
         gap:  20px;
-        overflow-x:  auto;
+        overflow-x: scroll;
         width:  100%;
-        
+        height: 100vh;
+               
 }
 
 section.portifolio  .flex::-webkit-scrollbar  {
         display:  none;
+       
 }
 
 .img-port  {
@@ -393,7 +395,7 @@ section.portifolio  .flex::-webkit-scrollbar  {
 }
 
 .img-port:hover  {
-        background-position:  100%  100%;
+        background-position:  center;
         transform:  scale(1.05);
 }
 
