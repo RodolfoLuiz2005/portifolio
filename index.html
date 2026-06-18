@@ -1,324 +1,388 @@
 <!DOCTYPE html>
-<html lang="pt-br en">
+<html lang="pt-BR">
 
 <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,  initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description"
+                content="Portfólio de Rodolfo Luiz, desenvolvedor front-end focado em sites modernos, responsivos e funcionais para negócios locais.">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="style.css">
-        <!--botstrap-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-        <!--fim  bootsttrap-->
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
         <link rel="shortcut icon" href="img/logo-rl.png" type="image/x-icon">
-
-        <title>Portifolio</title>
+        <title>Portfólio | Rodolfo Luiz - Desenvolvedor Front-end</title>
 </head>
 
 <body>
-        <header>
-                <div class="interface">
-                        <div class="fixed">
-                                <nav class="menu">
-                                        <ul>
-                                                <li>
-                                                        <a href="#inicio">
-                                                                Inicio
-                                                        </a>
-                                                </li>
-                                                <li>
-                                                        <a href="#especialidade">
-                                                                Especialidade
-                                                        </a>
-                                                </li>
-                                                <li>
-                                                        <a href="#sobre">
-                                                                Sobre
-                                                        </a>
-                                                </li>
-                                                <li>
-                                                        <a href="#projetos">
-                                                                Projetos
-                                                        </a>
-                                                </li>
-                                        </ul>
-                                </nav>
-                        </div>
-                        <div class="btn-contato">
-                                <a href="#">
-                                        <button>Contato</button>
-                                </a>
-                        </div>
+        <header class="site-header" id="site-header">
+                <div class="interface header-content">
+                        <a class="logo" href="#inicio" aria-label="Ir para o início">
+                                <img src="img/logo-rl.png" alt="Logo RL">
+                        </a>
 
+                        <nav class="menu" aria-label="Menu principal">
+                                <ul>
+                                        <li><a href="#inicio">Início</a></li>
+                                        <li><a href="#especialidade">Tecnologias</a></li>
+                                        <li><a href="#sobre">Sobre</a></li>
+                                        <li><a href="#projetos">Projetos</a></li>
+                                        <li><a href="#contato">Contato</a></li>
+                                </ul>
+                        </nav>
 
-                        <div class="btn-abrir" id="btn-menu">
-                                <i class="bi  bi-list"></i>
-                        </div>
+                        <a class="btn btn-primary header-cta" href="#contato">Contato</a>
 
-
-                        <div id="menu-mobile" class="menu-mobile">
-
-                                <div class="btn-fechar">
-                                        <i class="bi  bi-x-lg"></i>
-                                </div>
-
-                                <nav>
-                                        <ul>
-                                                <li>
-                                                        <a href="#inicio">
-                                                                Inicio
-                                                        </a>
-                                                </li>
-                                                <li>
-                                                        <a href="#especialidade">
-                                                                Especialidade
-                                                        </a>
-                                                </li>
-                                                <li>
-                                                        <a href="#sobre">
-                                                                Sobre
-                                                        </a>
-                                                </li>
-                                                <li>
-                                                        <a href="#projeto">
-                                                                Projetos
-                                                        </a>
-                                                </li>
-                                        </ul>
-                                </nav>
-                        </div><!--  menu  mobile  -->
-
-                        <div class="overly-menu">
-
-                        </div><!--  overly-menu  -->
-
+                        <button class="btn-abrir" id="btn-menu" type="button" aria-label="Abrir menu"
+                                aria-controls="menu-mobile" aria-expanded="false">
+                                <span aria-hidden="true">☰</span>
+                        </button>
                 </div>
 
-                </div><!--  interface  -->
-
-        </header><!--header-->
-        <main>
-                <section class="topo-do-site">
-
-                        <div class="interface">
-                                <div class="flex">
-
-                                        <div class="txt-topo-site">
-                                                <h1>
-                                                        <span class="animacao">Transforme</span>
-                                                        <span class="animacao">suas</span>
-                                                        <span class="animacao">ideias</span>
-                                                        <span class="animacao">em</span>
-                                                        <span class="animacao">realidade</span>
-                                                        <span class="animacao">
-                                                                <span class="ponto">.</span>
-                                                        </span>
-                                                </h1>
-                                                <p>FRONT-END DEVELOPER AND QA</p>
-
-                                                <div class="btn-contato">
-                                                        <a href="https://wa.me/5581988024557" target="_blank">
-                                                                <button>
-                                                                        Entre em contato
-                                                                </button>
-                                                        </a>
-                                                </div>
-
-                                        </div><!--txt-topo-site    -->
-
-
-                                        <div class="img-topo-site">
-                                                <img src="img/IMG-20260502-WA0010.jpg" alt="">
-                                        </div>
-
-                                </div>
-
+                <div id="menu-mobile" class="menu-mobile" aria-hidden="true">
+                        <div class="mobile-menu-top">
+                                <span>Menu</span>
+                                <button class="btn-fechar" type="button" aria-label="Fechar menu">
+                                        <span aria-hidden="true">×</span>
+                                </button>
                         </div>
 
-                </section><!--topo  do  site-->
+                        <nav aria-label="Menu mobile">
+                                <ul>
+                                        <li><a href="#inicio">Início</a></li>
+                                        <li><a href="#especialidade">Tecnologias</a></li>
+                                        <li><a href="#sobre">Sobre</a></li>
+                                        <li><a href="#projetos">Projetos</a></li>
+                                        <li><a href="#contato">Contato</a></li>
+                                </ul>
+                        </nav>
+                </div>
 
-                <section id="especialidade" class="especialidades">
-                        <div class="interface">
-                                <h2 class="titulo"><span>TECNOLOGIAS</span></h2>
+                <button class="overlay-menu" type="button" aria-label="Fechar menu"></button>
+        </header>
 
-                                <h3>BASICO:</h3>
-                                <div class="flex">
-                                        <div class="especialidades-box">
+        <main>
+                <section id="inicio" class="hero section-spacing">
+                        <div class="interface hero-grid">
+                                <div class="hero-content">
+                                        <span class="eyebrow reveal fade-up">Front-end Developer & QA</span>
+                                        <h1 class="reveal fade-up">Sites modernos, responsivos e funcionais para negócios locais.</h1>
+                                        <p class="reveal fade-up">
+                                                Desenvolvedor front-end focado em criar experiências digitais rápidas,
+                                                bonitas e fáceis de usar, com atenção a detalhes, performance e
+                                                qualidade.
+                                        </p>
 
-                                                <i class="fa-brands  fa-java"></i>
-
+                                        <div class="hero-actions stagger">
+                                                <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+                                                <a class="btn btn-secondary" href="https://wa.me/5581988024557"
+                                                        target="_blank" rel="noopener noreferrer">Falar comigo</a>
                                         </div>
-                                        <div class="especialidades-box">
+                                </div>
 
-                                                <i class="fa-brands  fa-node-js"></i>
-
-                                        </div>
-
-                                        <div class="especialidades-box">
-
-                                                <i class="fa-brands  fa-python"></i>
-
-                                        </div>
-                                        <div class="especialidades-box">
-
-                                                <i class="fa-brands  fa-react"></i>
-
-                                        </div>
-                                </div><!--flex-->
-                                <h3>INTERMEDIARIO:</h3>
-                                <div class="flex">
-                                        <div class="especialidades-box">
-
-                                                <i class="fa-brands  fa-html5"></i>
-
-                                        </div>
-
-                                        <div class="especialidades-box">
-
-                                                <i class="bi  bi-javascript"></i>
-
-                                        </div>
-
-                                        <div class="especialidades-box">
-
-                                                <i class="bi  bi-css"></i>
-
-                                        </div>
-                                </div><!--flex-->
-                        </div><!--Especialidades-->
+                                <div class="hero-image reveal fade-right">
+                                        <img class="profile-image" src="img/IMG-20260502-WA0010.jpg"
+                                                alt="Rodolfo Luiz, desenvolvedor front-end">
+                                </div>
+                        </div>
                 </section>
 
-
-                <section class="sobre">
+                <section id="especialidade" class="tecnologias section-spacing">
                         <div class="interface">
-                                <div class="flex">
-                                        <div class="img-sobre">
-                                                <img src="img/IMG_20241021_120329734~2.jpg" alt="">
-                                        </div><!--img-sobre-->
-
-                                        <div class="txt-sobre">
-                                                <h2>
-                                                        NICE TO MEET YOU, <span> MY NAME IS RODOLFO</span>
-                                                </h2>
-                                                <p>I am passionate about technology and software development, always
-                                                        seeking to learn new tools and improve my technical skills. My
-                                                        knowledge is primarily focused on front-end development, and I
-                                                        am proficient in HTML, CSS, JavaScript, React.js, Node.js,
-                                                        Python and Cypress.</p>
-                                                <br>
-                                                <p>I have a proactive profile, a knack for learning, and a strong
-                                                        interest in web development, good programming practices, and
-                                                        building modern and scalable applications. I am looking for
-                                                        opportunities to grow professionally, contribute to challenging
-                                                        projects, and constantly evolve in the technology field.</p>
-
-                                                <div class="btn-social">
-                                                        <a href="https://wa.me/5581988024557" target="_blank">
-                                                                <button>
-                                                                        <i class="bi  bi-whatsapp"></i>
-                                                                </button>
-                                                        </a>
-                                                        <a href="https://www.instagram.com/_rodolfo.l?igsh=MTBtYXozYWt6MHUyNg=="
-                                                                target="_blank">
-                                                                <button>
-                                                                        <i class="bi  bi-instagram"></i>
-                                                                </button>
-                                                        </a>
-
-                                                        <a href="https://www.linkedin.com/in/rodolfo-luiz-a4b8bb344"
-                                                                target="_blank">
-                                                                <button>
-                                                                        <i class="bi  bi-linkedin"></i>
-                                                                </button>
-                                                        </a>
-
-                                                        <a href="https://github.com/RodolfoLuiz2005" target="_blank">
-                                                                <button>
-                                                                        <i class="bi  bi-github"></i>
-                                                                </button>
-                                                        </a>
-
-                                                </div>
-                                        </div><!--txt-sobre-->
+                                <div class="section-heading reveal fade-up">
+                                        <span class="eyebrow">Tecnologias</span>
+                                        <h2 class="titulo">Conhecimentos técnicos</h2>
                                 </div>
-                        </div><!--interface-->
-                </section><!--sobre-->
 
-                <section class="portifolio">
+                                <div class="tech-groups">
+                                        <div class="tech-group reveal fade-up">
+                                                <h3>BÁSICO:</h3>
+                                                <div class="tech-grid stagger">
+                                                        <article class="tech-card">
+                                                                <i class="fa-brands fa-java" aria-hidden="true"></i>
+                                                                <span>Java</span>
+                                                        </article>
+                                                        <article class="tech-card">
+                                                                <i class="fa-brands fa-node-js" aria-hidden="true"></i>
+                                                                <span>Node.js</span>
+                                                        </article>
+                                                        <article class="tech-card">
+                                                                <i class="fa-brands fa-python" aria-hidden="true"></i>
+                                                                <span>Python</span>
+                                                        </article>
+                                                        <article class="tech-card">
+                                                                <i class="fa-brands fa-react" aria-hidden="true"></i>
+                                                                <span>React</span>
+                                                        </article>
+                                                </div>
+                                        </div>
 
+                                        <div class="tech-group reveal fade-up">
+                                                <h3>INTERMEDIÁRIO:</h3>
+                                                <div class="tech-grid stagger">
+                                                        <article class="tech-card">
+                                                                <i class="fa-brands fa-html5" aria-hidden="true"></i>
+                                                                <span>HTML</span>
+                                                        </article>
+                                                        <article class="tech-card">
+                                                                <i class="fa-brands fa-css3-alt" aria-hidden="true"></i>
+                                                                <span>CSS</span>
+                                                        </article>
+                                                        <article class="tech-card">
+                                                                <i class="fa-brands fa-js" aria-hidden="true"></i>
+                                                                <span>JavaScript</span>
+                                                        </article>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
+
+                <section id="sobre" class="sobre section-spacing">
+                        <div class="interface sobre-grid">
+                                <div class="sobre-image reveal fade-right">
+                                        <img class="about-image" src="img/IMG_20241021_120329734~2.jpg"
+                                                alt="Foto de Rodolfo Luiz">
+                                </div>
+
+                                <div class="sobre-content reveal fade-left">
+                                        <span class="eyebrow">Sobre mim</span>
+                                        <h2 class="titulo">Prazer, meu nome é <span>Rodolfo Luiz</span></h2>
+                                        <p>
+                                                Sou apaixonado por tecnologia e desenvolvimento de software. Tenho
+                                                experiência com HTML, CSS, JavaScript, React.js, Node.js, Python e
+                                                Cypress, sempre buscando criar interfaces bem estruturadas, responsivas
+                                                e agradáveis de usar.
+                                        </p>
+                                        <p>
+                                                Tenho perfil proativo, facilidade para aprender e interesse constante
+                                                por boas práticas, testes, performance e construção de soluções web que
+                                                ajudem pessoas e negócios a se posicionarem melhor no digital.
+                                        </p>
+
+                                        <div class="btn-social" aria-label="Redes sociais">
+                                                <a href="https://wa.me/5581988024557" target="_blank"
+                                                        rel="noopener noreferrer" aria-label="Chamar no WhatsApp">
+                                                        <i class="bi bi-whatsapp" aria-hidden="true"></i>
+                                                </a>
+                                                <a href="https://www.instagram.com/_rodolfo.l?igsh=MTBtYXozYWt6MHUyNg=="
+                                                        target="_blank" rel="noopener noreferrer"
+                                                        aria-label="Abrir Instagram">
+                                                        <i class="bi bi-instagram" aria-hidden="true"></i>
+                                                </a>
+                                                <a href="https://www.linkedin.com/in/rodolfo-luiz-a4b8bb344"
+                                                        target="_blank" rel="noopener noreferrer"
+                                                        aria-label="Abrir LinkedIn">
+                                                        <i class="bi bi-linkedin" aria-hidden="true"></i>
+                                                </a>
+                                                <a href="https://github.com/RodolfoLuiz2005" target="_blank"
+                                                        rel="noopener noreferrer" aria-label="Abrir GitHub">
+                                                        <i class="bi bi-github" aria-hidden="true"></i>
+                                                </a>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
+
+                <section id="projetos" class="projetos section-spacing">
                         <div class="interface">
+                                <div class="section-heading reveal fade-up">
+                                        <span class="eyebrow">Projetos</span>
+                                        <h2 class="titulo">Sites publicados</h2>
+                                </div>
 
-                                <h2 class="titulo">MEUS <span>PROJETOS</span></h2>
-
-                                <div class="flex">
-                                        <a href="https://blackline-barbearia.vercel.app/" target="_blank">
-                                                <div class="img-port"
-                                                        style="background-image:  url(img/barbearia.png);">
-                                                        <div class="overlay">Barbearia</div>
+                                <div class="projects-grid stagger">
+                                        <article class="project-card reveal fade-up">
+                                                <img class="project-image" src="img/barbearia.png"
+                                                        alt="Página inicial do projeto Barbearia">
+                                                <div class="project-content">
+                                                        <h3>Barbearia</h3>
+                                                        <p>Site institucional para barbearia, com visual forte,
+                                                                navegação direta e foco em conversão.</p>
+                                                        <div class="project-tags" aria-label="Tecnologias usadas">
+                                                                <span>HTML</span>
+                                                                <span>CSS</span>
+                                                                <span>JavaScript</span>
+                                                        </div>
+                                                        <ul>
+                                                                <li>Apresentação dos serviços</li>
+                                                                <li>Layout responsivo</li>
+                                                                <li>Chamada para contato</li>
+                                                        </ul>
+                                                        <div class="project-actions">
+                                                                <a class="btn btn-small" href="https://blackline-barbearia.vercel.app/"
+                                                                        target="_blank" rel="noopener noreferrer">Ver site</a>
+                                                        </div>
                                                 </div>
+                                        </article>
+
+                                        <article class="project-card reveal fade-up">
+                                                <img class="project-image" src="img/confeitaria.png"
+                                                        alt="Página inicial do projeto Confeitaria">
+                                                <div class="project-content">
+                                                        <h3>Confeitaria</h3>
+                                                        <p>Experiência visual delicada para apresentar produtos,
+                                                                sabores e contato de uma confeitaria.</p>
+                                                        <div class="project-tags" aria-label="Tecnologias usadas">
+                                                                <span>HTML</span>
+                                                                <span>CSS</span>
+                                                                <span>JavaScript</span>
+                                                        </div>
+                                                        <ul>
+                                                                <li>Vitrine de produtos</li>
+                                                                <li>Design responsivo</li>
+                                                                <li>Contato facilitado</li>
+                                                        </ul>
+                                                        <div class="project-actions">
+                                                                <a class="btn btn-small" href="https://confeitaria-taupe-rho.vercel.app/"
+                                                                        target="_blank" rel="noopener noreferrer">Ver site</a>
+                                                        </div>
+                                                </div>
+                                        </article>
+
+                                        <article class="project-card reveal fade-up">
+                                                <img class="project-image" src="img/salao-de-beleza.png"
+                                                        alt="Página inicial do projeto Salão de beleza">
+                                                <div class="project-content">
+                                                        <h3>Salão de beleza</h3>
+                                                        <p>Landing page para salão, destacando serviços, identidade
+                                                                visual e caminhos rápidos para atendimento.</p>
+                                                        <div class="project-tags" aria-label="Tecnologias usadas">
+                                                                <span>HTML</span>
+                                                                <span>CSS</span>
+                                                                <span>JavaScript</span>
+                                                        </div>
+                                                        <ul>
+                                                                <li>Seções comerciais claras</li>
+                                                                <li>Boa leitura no mobile</li>
+                                                                <li>Botões de ação visíveis</li>
+                                                        </ul>
+                                                        <div class="project-actions">
+                                                                <a class="btn btn-small" href="https://salao-de-beleza-theta.vercel.app/"
+                                                                        target="_blank" rel="noopener noreferrer">Ver site</a>
+                                                        </div>
+                                                </div>
+                                        </article>
+
+                                        <article class="project-card reveal fade-up">
+                                                <img class="project-image" src="img/lanchonte.png"
+                                                        alt="Página inicial do projeto Lanchonete">
+                                                <div class="project-content">
+                                                        <h3>Lanchonete</h3>
+                                                        <p>Site para lanchonete com comunicação objetiva, cardápio em
+                                                                destaque e foco em pedidos.</p>
+                                                        <div class="project-tags" aria-label="Tecnologias usadas">
+                                                                <span>HTML</span>
+                                                                <span>CSS</span>
+                                                                <span>JavaScript</span>
+                                                        </div>
+                                                        <ul>
+                                                                <li>Apresentação de produtos</li>
+                                                                <li>Layout leve e responsivo</li>
+                                                                <li>Direcionamento para contato</li>
+                                                        </ul>
+                                                        <div class="project-actions">
+                                                                <a class="btn btn-small" href="https://lanchonete-ym7p.vercel.app/"
+                                                                        target="_blank" rel="noopener noreferrer">Ver site</a>
+                                                        </div>
+                                                </div>
+                                        </article>
+
+                                        <article class="project-card reveal fade-up">
+                                                <img class="project-image" src="img/cevejaria.png"
+                                                        alt="Página inicial do projeto Cervejaria">
+                                                <div class="project-content">
+                                                        <h3>Cervejaria</h3>
+                                                        <p>Site promocional para cervejaria, com atmosfera premium,
+                                                                imagens fortes e navegação simples.</p>
+                                                        <div class="project-tags" aria-label="Tecnologias usadas">
+                                                                <span>HTML</span>
+                                                                <span>CSS</span>
+                                                                <span>JavaScript</span>
+                                                        </div>
+                                                        <ul>
+                                                                <li>Identidade visual marcante</li>
+                                                                <li>Estrutura de landing page</li>
+                                                                <li>Publicação na Vercel</li>
+                                                        </ul>
+                                                        <div class="project-actions">
+                                                                <a class="btn btn-small" href="https://cervejaria-sooty.vercel.app/"
+                                                                        target="_blank" rel="noopener noreferrer">Ver site</a>
+                                                        </div>
+                                                </div>
+                                        </article>
+
+                                        <article class="project-card reveal fade-up">
+                                                <img class="project-image" src="img/restaurante1.png"
+                                                        alt="Página inicial do projeto Restaurante">
+                                                <div class="project-content">
+                                                        <h3>Restaurante</h3>
+                                                        <p>Landing page para restaurante, organizada para apresentar
+                                                                ambiente, pratos e chamada para atendimento.</p>
+                                                        <div class="project-tags" aria-label="Tecnologias usadas">
+                                                                <span>HTML</span>
+                                                                <span>CSS</span>
+                                                                <span>JavaScript</span>
+                                                        </div>
+                                                        <ul>
+                                                                <li>Layout responsivo</li>
+                                                                <li>Apresentação comercial</li>
+                                                                <li>Experiência visual consistente</li>
+                                                        </ul>
+                                                        <div class="project-actions">
+                                                                <a class="btn btn-small" href="https://restaurante1-two.vercel.app/"
+                                                                        target="_blank" rel="noopener noreferrer">Ver site</a>
+                                                        </div>
+                                                </div>
+                                        </article>
+                                </div>
+                        </div>
+                </section>
+
+                <section id="contato" class="contato section-spacing">
+                        <div class="interface contato-grid">
+                                <div class="contato-info reveal fade-right">
+                                        <span class="eyebrow">Contato</span>
+                                        <h2 class="titulo">Fala comigo</h2>
+                                        <p>
+                                                Tem uma ideia de site, landing page ou melhoria para seu negócio?
+                                                Envie uma mensagem e eu retorno assim que possível.
+                                        </p>
+                                        <a class="contact-link" href="mailto:rodolfoluiz@gmail.com">
+                                                <i class="bi bi-envelope" aria-hidden="true"></i>
+                                                rodolfoluiz@gmail.com
                                         </a>
-
-                                        <a href="https://confeitaria-taupe-rho.vercel.app/" target="_blank">
-                                                <div class="img-port"
-                                                        style="background-image:  url(img/confeitaria.png);">
-                                                        <div class="overlay">Confeitaria</div>
-                                                </div>
+                                        <a class="contact-link" href="https://wa.me/5581988024557" target="_blank"
+                                                rel="noopener noreferrer">
+                                                <i class="bi bi-whatsapp" aria-hidden="true"></i>
+                                                WhatsApp
                                         </a>
+                                </div>
 
-                                        <a href="https://salao-de-beleza-theta.vercel.app/" target="_blank">
-                                                <div class="img-port"
-                                                        style="background-image:  url(img/salao-de-beleza.png);">
-                                                        <div class="overlay">Salão de beleza</div>
-                                                </div>
-                                        </a>
+                                <form class="contact-form reveal fade-left" id="contact-form"
+                                        action="https://formspree.io/f/xbdeyewp" method="post" novalidate>
+                                        <label for="nome">Nome</label>
+                                        <input type="text" name="nome" id="nome" placeholder="Seu nome"
+                                                autocomplete="name" aria-describedby="nome-erro" required>
+                                        <span class="mensagem-erro" id="nome-erro" aria-live="polite"></span>
 
-                                        <a href="https://lanchonete-ym7p.vercel.app/" target="_blank">
-                                                <div class="img-port"
-                                                        style="background-image:  url(img/lanchonte.png);">
-                                                        <div class="overlay">Lachonete</div>
-                                                </div>
-                                        </a>
-
-                                        <!-- <a href="https://cervejaria-sooty.vercel.app/" target="_blank">
-                                                <div class="img-port"
-                                                        style="background-image:  url(img/cevejaria.png);">
-                                                        <div class="overlay">Cervejaria</div>
-                                                </div>
-                                        </a> -->
-
-                                        <a href="https://restaurante1-two.vercel.app/" target="_blank">
-                                                <div class="img-port"
-                                                        style="background-image:  url(img/restaurante1.png);">
-                                                        <div class="overlay">Restaurante</div>
-                                                </div>
-                                        </a>
-                                </div><!--flex-->
-
-                        </div><!--interface-->
-
-                </section><!--portifolio-->
-
-                <section class="form">
-                        <div class="interface">
-                                <h2 class="titulo">FALA<span>COMIGO</span></h2>
-                                <form id="contact-form" action="https://formspree.io/f/xbdeyewp" method="post"
-                                        novalidate>
-                                        <input type="text" name="nome" id="nome" placeholder="seu  nome"
-                                                aria-describedby="nome-erro" required>
-                                        <span class="mensagem-erro" id="nome-erro" aria-live="polite">
-                                        </span>
-                                        <input type="email" name="email" id="email" placeholder="seu  e-mail"
-                                                aria-describedby="email-erro" required>
+                                        <label for="email">E-mail</label>
+                                        <input type="email" name="email" id="email" placeholder="seuemail@exemplo.com"
+                                                autocomplete="email" aria-describedby="email-erro" required>
                                         <span class="mensagem-erro" id="email-erro" aria-live="polite"></span>
-                                        <input type="tel" name="celular" id="celular" placeholder="seu  celular"
-                                                aria-describedby="celular-erro" required>
+
+                                        <label for="celular">Celular</label>
+                                        <input type="tel" name="celular" id="celular" placeholder="(81) 98765-4321"
+                                                autocomplete="tel" aria-describedby="celular-erro" required>
                                         <span class="mensagem-erro" id="celular-erro" aria-live="polite"></span>
-                                        <textarea name="mensagem" id="mensagem" placeholder="Sua  mensagem"
+
+                                        <label for="mensagem">Mensagem</label>
+                                        <textarea name="mensagem" id="mensagem" placeholder="Conte um pouco sobre o projeto"
                                                 aria-describedby="mensagem-erro" required></textarea>
                                         <span class="mensagem-erro" id="mensagem-erro" aria-live="polite"></span>
-                                        <div class="btn-enviar">
-                                                <button type="submit">Enviar</button>
-                                        </div>
+
+                                        <button class="btn btn-primary" id="submit-button" type="submit">Enviar mensagem</button>
                                         <p class="mensagem-sucesso" id="mensagem-sucesso" aria-live="polite"></p>
                                 </form>
                         </div>
@@ -326,54 +390,30 @@
         </main>
 
         <footer>
-                <div class="interface">
-
-                        <div class="flex">
-                                <div class="line-footer">
-                                        <div class="btn-social">
-                                                <a href="https://wa.me/5581988024557" target="_blank">
-                                                        <button>
-                                                                <i class="bi  bi-whatsapp"></i>
-                                                        </button>
-                                                </a>
-                                                <a href="https://www.instagram.com/_rodolfo.l?igsh=MTBtYXozYWt6MHUyNg=="
-                                                        target="_blank">
-                                                        <button>
-                                                                <i class="bi  bi-instagram"></i>
-                                                        </button>
-                                                </a>
-                                                <a href="https://www.linkedin.com/in/rodolfo-luiz-a4b8bb344"
-                                                        target="_blank">
-                                                        <button>
-                                                                <i class="bi  bi-linkedin"></i>
-                                                        </button>
-                                                </a>
-                                                <a href="https://github.com/RodolfoLuiz2005" target="_blank">
-                                                        <button>
-                                                                <i class="bi  bi-github"></i>
-                                                        </button>
-                                                </a>
-
-
-                                        </div><!--btn-social-->
-                                </div><!--line-footer-->
-                        </div><!--flex-->
-
-                        <div class="line-footer  borda">
-
-                                <p>
-                                        <i class="bi  bi-envelope">
-                                        </i>
-                                        <a href="mailto:rodolfoluiz@gmail.com" type="e-mail">Rodolfolz09082020@gmailcom
-                                        </a>
-                                </p>
-
-                        </div><!--line-footer-->
-                </div><!--interface-->
+                <div class="interface footer-content">
+                        <p>© 2026 Rodolfo Luiz. Portfólio desenvolvido com HTML, CSS e JavaScript.</p>
+                        <div class="btn-social" aria-label="Redes sociais no rodapé">
+                                <a href="https://wa.me/5581988024557" target="_blank" rel="noopener noreferrer"
+                                        aria-label="Chamar no WhatsApp">
+                                        <i class="bi bi-whatsapp" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://www.instagram.com/_rodolfo.l?igsh=MTBtYXozYWt6MHUyNg=="
+                                        target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram">
+                                        <i class="bi bi-instagram" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/rodolfo-luiz-a4b8bb344" target="_blank"
+                                        rel="noopener noreferrer" aria-label="Abrir LinkedIn">
+                                        <i class="bi bi-linkedin" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://github.com/RodolfoLuiz2005" target="_blank" rel="noopener noreferrer"
+                                        aria-label="Abrir GitHub">
+                                        <i class="bi bi-github" aria-hidden="true"></i>
+                                </a>
+                        </div>
+                </div>
         </footer>
 
+        
 </body>
-
 <script src="script.js" defer></script>
-
 </html>

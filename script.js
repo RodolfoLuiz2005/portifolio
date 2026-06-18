@@ -1,21 +1,100 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
+    const header = document.getElementById('site-header');
     const btnMenu = document.getElementById('btn-menu');
     const menu = document.getElementById('menu-mobile');
-    const overlay = document.querySelector('.overly-menu');
+    const overlay = document.querySelector('.overlay-menu');
+    const btnFechar = document.querySelector('.btn-fechar');
+    const mobileLinks = menu ? menu.querySelectorAll('a[href^="#"]') : [];
 
-    if (btnMenu && menu) {
-        btnMenu.addEventListener('click', () => {
-            menu.classList.add('abrir-menu');
-        });
-
-        menu.addEventListener('click', () => {
-            menu.classList.remove('abrir-menu');
-        });
+    function atualizarHeader() {
+        if (!header) return;
+        header.classList.toggle('scrolled', window.scrollY > 12);
     }
 
-    if (overlay && menu) {
-        overlay.addEventListener('click', () => {
-            menu.classList.remove('abrir-menu');
+    function abrirMenu() {
+        if (!menu || !btnMenu || !overlay || !header) return;
+
+        menu.classList.add('abrir-menu');
+        overlay.classList.add('active');
+        header.classList.add('menu-active');
+        body.classList.add('menu-open');
+        menu.setAttribute('aria-hidden', 'false');
+        btnMenu.setAttribute('aria-expanded', 'true');
+    }
+
+    function fecharMenu() {
+        if (!menu || !btnMenu || !overlay || !header) return;
+
+        menu.classList.remove('abrir-menu');
+        overlay.classList.remove('active');
+        header.classList.remove('menu-active');
+        body.classList.remove('menu-open');
+        menu.setAttribute('aria-hidden', 'true');
+        btnMenu.setAttribute('aria-expanded', 'false');
+    }
+
+    atualizarHeader();
+    window.addEventListener('scroll', atualizarHeader, { passive: true });
+
+    if (btnMenu) {
+        btnMenu.addEventListener('click', abrirMenu);
+    }
+
+    if (btnFechar) {
+        btnFechar.addEventListener('click', fecharMenu);
+    }
+
+    if (overlay) {
+        overlay.addEventListener('click', fecharMenu);
+    }
+
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', fecharMenu);
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            fecharMenu();
+        }
+    });
+
+    document.querySelectorAll('.stagger').forEach(group => {
+        Array.from(group.children).forEach((item, index) => {
+            item.style.setProperty('--stagger-index', index);
+        });
+    });
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealElements = document.querySelectorAll('.reveal, .stagger > *');
+
+    function revelarElemento(element) {
+        element.classList.add('reveal-visible');
+    }
+
+    function revelarTudo() {
+        revealElements.forEach(revelarElemento);
+    }
+
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+        revelarTudo();
+    } else {
+        body.classList.add('animations-ready');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    revelarElemento(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.16,
+            rootMargin: '0px 0px -10% 0px'
+        });
+
+        revealElements.forEach(element => {
+            observer.observe(element);
         });
     }
 
@@ -30,22 +109,27 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const mensagemSucesso = document.getElementById('mensagem-sucesso');
+    const submitButton = document.getElementById('submit-button');
+    const submitText = submitButton ? submitButton.textContent : '';
+
+    function campoExiste(campo) {
+        return campo instanceof HTMLElement;
+    }
 
     function limparMensagemSucesso() {
-        if (mensagemSucesso) {
-            mensagemSucesso.textContent = '';
-            mensagemSucesso.classList.remove('erro-envio');
-        }
+        if (!mensagemSucesso) return;
+        mensagemSucesso.textContent = '';
+        mensagemSucesso.classList.remove('erro-envio');
     }
 
     function mostrarMensagemEnvio(mensagem, tipo = 'sucesso') {
         if (!mensagemSucesso) return;
-
         mensagemSucesso.textContent = mensagem;
         mensagemSucesso.classList.toggle('erro-envio', tipo === 'erro');
     }
 
     function mostrarErro(campo, mensagem) {
+        if (!campoExiste(campo)) return;
         const erro = document.getElementById(`${campo.id}-erro`);
 
         campo.classList.add('campo-invalido');
@@ -58,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function mostrarValido(campo) {
+        if (!campoExiste(campo)) return;
         const erro = document.getElementById(`${campo.id}-erro`);
 
         campo.classList.add('campo-valido');
@@ -71,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function limparValidacao() {
         Object.values(campos).forEach(campo => {
+            if (!campoExiste(campo)) return;
             campo.classList.remove('campo-valido', 'campo-invalido');
             campo.removeAttribute('aria-invalid');
         });
@@ -84,12 +170,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const nome = campos.nome.value.trim();
 
         if (!nome) {
-            mostrarErro(campos.nome, 'Digite seu nome.');
+            mostrarErro(campos.nome, 'Informe seu nome.');
             return false;
         }
 
         if (nome.length < 3) {
-            mostrarErro(campos.nome, 'O nome deve ter pelo menos 3 caracteres.');
+            mostrarErro(campos.nome, 'O nome precisa ter pelo menos 3 caracteres.');
             return false;
         }
 
@@ -102,12 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
 
         if (!email) {
-            mostrarErro(campos.email, 'Digite seu email.');
+            mostrarErro(campos.email, 'Informe seu e-mail.');
             return false;
         }
 
         if (!emailValido) {
-            mostrarErro(campos.email, 'Digite um email valido.');
+            mostrarErro(campos.email, 'Digite um e-mail válido.');
             return false;
         }
 
@@ -121,12 +207,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const celularValido = /^[1-9]{2}9?\d{8}$/.test(celularLimpo);
 
         if (!celular) {
-            mostrarErro(campos.celular, 'Digite seu celular com DDD.');
+            mostrarErro(campos.celular, 'Informe seu celular com DDD.');
             return false;
         }
 
         if (!celularValido) {
-            mostrarErro(campos.celular, 'Digite um celular brasileiro valido com DDD.');
+            mostrarErro(campos.celular, 'Digite um celular brasileiro válido com DDD.');
             return false;
         }
 
@@ -138,12 +224,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const mensagem = campos.mensagem.value.trim();
 
         if (!mensagem) {
-            mostrarErro(campos.mensagem, 'Digite sua mensagem.');
+            mostrarErro(campos.mensagem, 'Escreva sua mensagem.');
             return false;
         }
 
         if (mensagem.length < 10) {
-            mostrarErro(campos.mensagem, 'A mensagem deve ter pelo menos 10 caracteres.');
+            mostrarErro(campos.mensagem, 'A mensagem precisa ter pelo menos 10 caracteres.');
             return false;
         }
 
@@ -165,16 +251,18 @@ document.addEventListener('DOMContentLoaded', () => {
         validarCampo();
     }
 
-    campos.nome.addEventListener('input', () => validarAoDigitar(validarNome));
-    campos.email.addEventListener('input', () => validarAoDigitar(validarEmail));
-    campos.celular.addEventListener('input', () => validarAoDigitar(validarCelular));
-    campos.mensagem.addEventListener('input', () => validarAoDigitar(validarMensagem));
+    if (Object.values(campos).every(campoExiste)) {
+        campos.nome.addEventListener('input', () => validarAoDigitar(validarNome));
+        campos.email.addEventListener('input', () => validarAoDigitar(validarEmail));
+        campos.celular.addEventListener('input', () => validarAoDigitar(validarCelular));
+        campos.mensagem.addEventListener('input', () => validarAoDigitar(validarMensagem));
+    }
 
     async function enviarFormulario() {
         const endpoint = form.action;
 
         if (!endpoint || endpoint.includes('SEU_ID_AQUI')) {
-            throw new Error('Endpoint do Formspree nao configurado.');
+            throw new Error('Endpoint do Formspree não configurado.');
         }
 
         const resposta = await fetch(endpoint, {
@@ -186,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (!resposta.ok) {
-            throw new Error('Falha no envio do formulario.');
+            throw new Error('Falha no envio do formulário.');
         }
     }
 
@@ -195,16 +283,30 @@ document.addEventListener('DOMContentLoaded', () => {
         limparMensagemSucesso();
 
         if (!validarFormulario()) {
+            const primeiroCampoInvalido = form.querySelector('.campo-invalido');
+            if (primeiroCampoInvalido) {
+                primeiroCampoInvalido.focus();
+            }
             return;
         }
 
         try {
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = 'Enviando...';
+            }
+
             await enviarFormulario();
-            mostrarMensagemEnvio('Mensagem enviada com sucesso!');
+            mostrarMensagemEnvio('Mensagem enviada com sucesso. Obrigado pelo contato!');
             form.reset();
             limparValidacao();
         } catch (erro) {
-            mostrarMensagemEnvio('Nao foi possivel enviar a mensagem. Verifique o endpoint do formulario e tente novamente.', 'erro');
+            mostrarMensagemEnvio('Não foi possível enviar agora. Tente novamente ou chame pelo WhatsApp.', 'erro');
+        } finally {
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent = submitText;
+            }
         }
     });
 });
